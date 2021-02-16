@@ -24,9 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
   http: ^0.12.2
-  flutter_html: ^1.2.0
-  geolocator: ^6.2.0
-  onemapsg: ^1.0.0
+  google_maps_flutter: ^1.2.0
 
 
   # The following adds the Cupertino Icons font to your application.

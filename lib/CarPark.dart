@@ -1,21 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_html/flutter_html.dart';
-import 'package:geolocator/geolocator.dart';
-import 'package:onemapsg/onemapsg.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-class CarPark extends StatelessWidget {
-  Position currentPosition;
+class CarPark extends StatefulWidget {
+  CarPark({Key key}) : super(key: key);
+
+  @override
+  _CarParkState createState() => _CarParkState();
+}
+
+class _CarParkState extends State<CarPark> {
+  GoogleMapController mapController;
+
+  final LatLng _center = const LatLng(1.3521, 103.8198);
+
+  void _onMapCreated(GoogleMapController controller) {
+    mapController = controller;
+  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: new Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          new Image.network(
-              'https://developers.onemap.sg/commonapi/staticmap/getStaticImage?layerchosen=default&lat=1.28666009534058&lng=103.837643678463&zoom=16&height=512&width=512&polygons=&lines=&points=&color=&fillColor='),
-        ],
+        child: GoogleMap(
+      onMapCreated: _onMapCreated,
+      initialCameraPosition: CameraPosition(
+        target: _center,
+        zoom: 11.0,
       ),
-    );
+    ));
   }
 }

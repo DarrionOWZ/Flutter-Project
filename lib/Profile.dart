@@ -30,6 +30,10 @@ class Profile extends StatelessWidget {
               padding: const EdgeInsets.all(20.0),
               child: RaisedButton(
                 child: Text('Logout'),
+                color: Colors.white,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(18.0),
+                    side: BorderSide(color: Colors.blue, width: 2.0)),
                 onPressed: () {
                   Navigator.push(
                     context,

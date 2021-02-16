@@ -6,7 +6,7 @@ import 'package:project/Profile.dart';
 
 import 'CashCard.dart';
 
-void main() => runApp(MyApp());
+void main() async => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
@@ -44,46 +44,69 @@ class _LoginState extends State<Login> {
     return Container(
       child: Scaffold(
         body: Container(
-          padding: const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(30.0),
           child: Center(
               child: Column(
             children: <Widget>[
+              // SizedBox(
+              //   height: 40,
+              // ),
               Padding(
-                padding: const EdgeInsets.all(20.0),
+                padding: const EdgeInsets.all(10.0),
                 child: Text(
-                  'Login Page',
-                  style: TextStyle(fontSize: 35.0, fontWeight: FontWeight.bold),
+                  'SGParking',
+                  style: TextStyle(
+                      fontSize: 35.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blue),
                 ),
+              ),
+              Icon(
+                Icons.commute,
+                size: 30,
+                color: Colors.blue,
               ),
               SizedBox(
                 height: 10,
               ),
               Padding(
-                padding: const EdgeInsets.all(20.0),
+                padding: const EdgeInsets.all(10.0),
                 child: TextField(
                   controller: usernameController,
                   decoration: InputDecoration(
                       hintText: 'Username',
                       hintStyle: TextStyle(),
                       enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black)),
+                          borderRadius: const BorderRadius.all(
+                              const Radius.circular(20.0)),
+                          borderSide:
+                              BorderSide(color: Colors.blue, width: 2.0)),
                       focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey)),
-                      contentPadding: const EdgeInsets.all(10.0)),
+                          borderRadius: const BorderRadius.all(
+                              const Radius.circular(20.0)),
+                          borderSide:
+                              BorderSide(color: Colors.lightBlue, width: 2.0)),
+                      contentPadding: const EdgeInsets.all(15.0)),
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(20.0),
+                padding: const EdgeInsets.all(10.0),
                 child: TextField(
                   controller: passwordController,
                   decoration: InputDecoration(
                       hintText: 'Password',
                       hintStyle: TextStyle(),
                       enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black)),
+                          borderRadius: const BorderRadius.all(
+                              const Radius.circular(20.0)),
+                          borderSide:
+                              BorderSide(color: Colors.blue, width: 2.0)),
                       focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey)),
-                      contentPadding: const EdgeInsets.all(10.0)),
+                          borderRadius: const BorderRadius.all(
+                              const Radius.circular(20.0)),
+                          borderSide:
+                              BorderSide(color: Colors.lightBlue, width: 2.0)),
+                      contentPadding: const EdgeInsets.all(15.0)),
                 ),
               ),
               Row(
@@ -92,9 +115,13 @@ class _LoginState extends State<Login> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     Padding(
-                        padding: const EdgeInsets.all(20.0),
+                        padding: const EdgeInsets.all(10.0),
                         child: RaisedButton(
                           child: Text('Register'),
+                          color: Colors.white,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18.0),
+                              side: BorderSide(color: Colors.blue, width: 2.0)),
                           onPressed: () {
                             Navigator.push(
                               context,
@@ -104,15 +131,27 @@ class _LoginState extends State<Login> {
                           },
                         )),
                     Padding(
-                        padding: const EdgeInsets.all(20.0),
+                        padding: const EdgeInsets.all(10.0),
                         child: RaisedButton(
                           child: Text('Submit'),
+                          color: Colors.white,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18.0),
+                              side: BorderSide(color: Colors.blue, width: 2.0)),
                           onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => MainScreen()),
-                            );
+                            if (passwordController.text == '123' &&
+                                usernameController.text == 'Darrion') {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => MainScreen()),
+                              );
+                            }
+                            // Navigator.push(
+                            //   context,
+                            //   MaterialPageRoute(
+                            //       builder: (context) => MainScreen()),
+                            // );
                           },
                         )),
                   ])
@@ -168,6 +207,7 @@ class MainScreen extends StatelessWidget {
             ),
           ),
           body: TabBarView(
+            physics: NeverScrollableScrollPhysics(),
             children: [
               // Icon(Icons.directions_car),
               // Icon(Icons.directions_transit),
@@ -202,9 +242,11 @@ class Register extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: Text(
-                    'Register Page',
-                    style:
-                        TextStyle(fontSize: 35.0, fontWeight: FontWeight.bold),
+                    'Register',
+                    style: TextStyle(
+                        fontSize: 35.0,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.blue),
                   ),
                 ),
                 SizedBox(
@@ -217,10 +259,16 @@ class Register extends StatelessWidget {
                         hintText: 'Username',
                         hintStyle: TextStyle(),
                         enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.black)),
+                            borderRadius: const BorderRadius.all(
+                                const Radius.circular(20.0)),
+                            borderSide:
+                                BorderSide(color: Colors.blue, width: 2.0)),
                         focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.grey)),
-                        contentPadding: const EdgeInsets.all(10.0)),
+                            borderRadius: const BorderRadius.all(
+                                const Radius.circular(20.0)),
+                            borderSide: BorderSide(
+                                color: Colors.lightBlue, width: 2.0)),
+                        contentPadding: const EdgeInsets.all(15.0)),
                   ),
                 ),
                 Padding(
@@ -230,10 +278,16 @@ class Register extends StatelessWidget {
                         hintText: 'Password',
                         hintStyle: TextStyle(),
                         enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.black)),
+                            borderRadius: const BorderRadius.all(
+                                const Radius.circular(20.0)),
+                            borderSide:
+                                BorderSide(color: Colors.blue, width: 2.0)),
                         focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.grey)),
-                        contentPadding: const EdgeInsets.all(10.0)),
+                            borderRadius: const BorderRadius.all(
+                                const Radius.circular(20.0)),
+                            borderSide: BorderSide(
+                                color: Colors.lightBlue, width: 2.0)),
+                        contentPadding: const EdgeInsets.all(15.0)),
                   ),
                 ),
                 // SizedBox(
@@ -246,10 +300,16 @@ class Register extends StatelessWidget {
                         hintText: 'Confirm Password',
                         hintStyle: TextStyle(),
                         enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.black)),
+                            borderRadius: const BorderRadius.all(
+                                const Radius.circular(20.0)),
+                            borderSide:
+                                BorderSide(color: Colors.blue, width: 2.0)),
                         focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.grey)),
-                        contentPadding: const EdgeInsets.all(10.0)),
+                            borderRadius: const BorderRadius.all(
+                                const Radius.circular(20.0)),
+                            borderSide: BorderSide(
+                                color: Colors.lightBlue, width: 2.0)),
+                        contentPadding: const EdgeInsets.all(15.0)),
                   ),
                 ),
                 Row(
@@ -261,6 +321,11 @@ class Register extends StatelessWidget {
                           padding: const EdgeInsets.all(12.5),
                           child: RaisedButton(
                             child: Text('Cancel'),
+                            color: Colors.white,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(18.0),
+                                side:
+                                    BorderSide(color: Colors.blue, width: 2.0)),
                             onPressed: () {
                               Navigator.pop(context);
                             },
@@ -269,6 +334,11 @@ class Register extends StatelessWidget {
                           padding: const EdgeInsets.all(12.5),
                           child: RaisedButton(
                             child: Text('Submit'),
+                            color: Colors.white,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(18.0),
+                                side:
+                                    BorderSide(color: Colors.blue, width: 2.0)),
                             onPressed: () {
                               Navigator.pop(context);
                             },
